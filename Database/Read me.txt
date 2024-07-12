@@ -1,0 +1,5 @@
+Run Dab_clinic_script.sql first
+
+If that fail, run DAB.sql
+
+If that also fail, contact Zalo =]]
