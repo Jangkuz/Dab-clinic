@@ -7,7 +7,9 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Dab_clinic_repo\Dab_clinic_repo.csproj" />
+    <ProjectReference Include="..\Dab_clinic_repo\Dab_clinic_repo.csproj">
+      <Private>True</Private>
+    </ProjectReference>
   </ItemGroup>
 
 </Project>
