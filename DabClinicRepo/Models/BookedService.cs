@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace Dab_clinic_repo.Models;
+namespace DabClinicRepo.Models;
 
 public partial class BookedService
 {
