@@ -22,9 +22,9 @@ public partial class DabClinicContext : DbContext
 
     public virtual DbSet<Appointment> Appointments { get; set; }
 
-    public virtual DbSet<BookedServiceRepository> BookedServices { get; set; }
+    public virtual DbSet<BookedService> BookedServices { get; set; }
 
-    public virtual DbSet<ClinicRepository> Clinics { get; set; }
+    public virtual DbSet<Clinic> Clinics { get; set; }
 
     public virtual DbSet<ClinicService> ClinicServices { get; set; }
 

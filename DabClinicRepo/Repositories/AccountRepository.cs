@@ -26,76 +26,218 @@ namespace DabClinicRepo.Repositories
             return _instance;
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
+        /// <exception cref="ArgumentNullException"/>
         public List<Account>? GetAllAcccounts()
         {
             List<Account>? accounts = null;
 
-            using (_context = new())
+            try
             {
-                accounts = _context.Accounts.Select(a => a).ToList();
+                using (_context = new())
+                {
+                    accounts = _context.Accounts.Select(a => a).ToList();
+                }
+            }
+            catch (ArgumentNullException argEx)
+            {
+                ExceptionHelper.ConsoleWriteInnerException(argEx);
+                throw;
             }
 
             return accounts;
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentNullException"/>
         public Account? GetAccountById(int id)
         {
             Account? account = null;
 
-            using (_context = new())
+            try
             {
-                account = _context.Accounts.FirstOrDefault(a => a.Id == id);
+                using (_context = new())
+                {
+                    account = _context.Accounts.FirstOrDefault(a => a.Id == id);
+                }
+            }
+            catch (ArgumentNullException argEx)
+            {
+                ExceptionHelper.ConsoleWriteInnerException(argEx);
+                throw;
             }
 
             return account;
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="usernamePassword"></param>
+        /// <param name="password"></param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentNullException"/>
         public Account? GetAccountByUsernamePassword(string usernamePassword, string password)
         {
             Account? account = null;
 
-            using (_context = new())
+            try
             {
-                //TODO: hash the string password before compare
-                account = _context.Accounts.FirstOrDefault(a => a.Username == usernamePassword
-                                                            && a.PasswordHash == password);
+                using (_context = new())
+                {
+                    //TODO: hash the string password before compare
+                    account = _context.Accounts.FirstOrDefault(a => a.Username == usernamePassword
+                                                                && a.PasswordHash == password);
+                }
+            }
+            catch (ArgumentNullException argEx)
+            {
+                ExceptionHelper.ConsoleWriteInnerException(argEx);
+                throw;
             }
 
 
             return account;
         }
 
-        public Account? AddAccount(Account createdAccount)
-        {
-            using (_context = new())
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="filterCondition"></param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentNullException"/>
+        public List<Account>? FilterAccountBasedOnCondition(Func<Account, bool> filterCondition) { 
+            List<Account>? accounts = null;
+
+            try
             {
-                _context.Accounts.Add(createdAccount);
-                _context.SaveChanges();
+                using( _context = new())
+                {
+                    accounts = _context.Accounts.Where(filterCondition).ToList();
+                }
             }
-            return GetAccountById(createdAccount.Id);
+            catch (ArgumentNullException argEx)
+            {
+                ExceptionHelper.ConsoleWriteInnerException(argEx);
+                throw;
+            }
+
+            return accounts;
         }
 
-        public Account? UpdateAccount(Account updatedAccount)
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="account"></param>
+        /// <returns></returns>
+        /// <exception cref="DbUpdateConcurrencyException"/>
+        /// <exception cref="DbUpdateException"/>
+        public bool AddAccount(Account account)
         {
-            using (_context = new())
+            var result = false;
+            try
             {
-                _context.Accounts.Update(updatedAccount);
-                _context.SaveChanges();
-            }
+                using (_context = new())
+                {
+                    _context.Accounts.Add(account);
+                    int writtenEntity = _context.SaveChanges();
+                    if (writtenEntity > 0)
+                    {
+                        result = true;
+                    }
+                }
 
-            return GetAccountById(updatedAccount.Id);
+            }
+            catch (DbUpdateConcurrencyException dbuConEx)
+            {
+                ExceptionHelper.ConsoleWriteInnerException(dbuConEx);
+                throw;
+            }
+            catch (DbUpdateException dbuEx)
+            {
+                ExceptionHelper.ConsoleWriteInnerException(dbuEx);
+                throw;
+            }
+            return result;
         }
 
-        public Account? DeleteAccount(Account deletedAccount)
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="account"></param>
+        /// <returns></returns>
+        /// <exception cref="DbUpdateConcurrencyException"/>
+        /// <exception cref="DbUpdateException"/>
+        public bool UpdateAccount(Account account)
         {
-
-            using (_context = new())
+            var result = false;
+            try
             {
-                _context.Accounts.Remove(deletedAccount);
-                _context.SaveChanges();
-            }
+                using (_context = new())
+                {
+                    _context.Accounts.Update(account);
+                    int writtenEntity = _context.SaveChanges();
+                    if(writtenEntity > 0)
+                    {
+                        result = true;
+                    }
+                }
 
-            return GetAccountById(deletedAccount.Id);
+            }
+            catch (DbUpdateConcurrencyException dbuConEx)
+            {
+                ExceptionHelper.ConsoleWriteInnerException(dbuConEx);
+                throw;
+            }
+            catch (DbUpdateException dbuEx)
+            {
+                ExceptionHelper.ConsoleWriteInnerException(dbuEx);
+                throw;
+            }
+            return result;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="account"></param>
+        /// <returns></returns>
+        /// <exception cref="DbUpdateConcurrencyException"/>
+        /// <exception cref="DbUpdateException"/>
+        public bool DeleteAccount(Account account)
+        {
+            var result = false;
+            try
+            {
+                using (_context = new())
+                {
+                    _context.Accounts.Remove(account);
+                    int writtenEntity = _context.SaveChanges();
+                    if(writtenEntity > 0)
+                    {
+                        result = true;
+                    }
+                }
+
+            }
+            catch (DbUpdateConcurrencyException dbuConEx)
+            {
+                ExceptionHelper.ConsoleWriteInnerException(dbuConEx);
+                throw;
+            }
+            catch (DbUpdateException dbuEx)
+            {
+                ExceptionHelper.ConsoleWriteInnerException(dbuEx);
+                throw;
+            }
+            return result;
         }
 
     }

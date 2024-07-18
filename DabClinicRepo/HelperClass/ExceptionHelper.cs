@@ -21,6 +21,7 @@ namespace DabClinicRepo.HelperClass
             while (innerException != null) {
                 Console.WriteLine($"Inner exception: {innerException.Message}");
                 Console.WriteLine($"Inner exception type: {innerException.GetType()}");
+                Console.WriteLine($"Inner exception stack trace: {innerException.StackTrace}");
                 innerException = innerException.InnerException;
             }
         }
