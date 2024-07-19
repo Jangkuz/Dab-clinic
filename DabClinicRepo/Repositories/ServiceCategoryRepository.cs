@@ -12,7 +12,7 @@ namespace DabClinicRepo.Repositories
 {
     public class ServiceCategoryRepository
     {
-        private DabClinicContext _context;
+        private DabClinicContext? _context;
         private static ServiceCategoryRepository? _instance;
         private ServiceCategoryRepository()
         {

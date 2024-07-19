@@ -12,7 +12,7 @@ namespace DabClinicRepo.Repositories
 {
     public class BookedServiceRepository
     {
-        private DabClinicContext _context;
+        private DabClinicContext? _context;
         private static BookedServiceRepository? _instance;
         private BookedServiceRepository()
         {

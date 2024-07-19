@@ -8,11 +8,11 @@ using System.Threading.Tasks;
 
 namespace DabClinicRepo.HelperClass
 {
-    public static  class ExceptionHelper
+    public static class ExceptionHelper
     {
-        public static void ConsoleWriteException(string exceptionLocation, string type, Exception ex)
+        public static void ConsoleWriteException(string exceptionLocation, Exception ex)
         {
-            Console.WriteLine($"{exceptionLocation}{type}: {ex.Message}");
+            Console.WriteLine($"{exceptionLocation}: {ex.Message}");
             Console.WriteLine($"Exception type: {ex.GetType()}");
         }
 

@@ -80,11 +80,11 @@ namespace DabClinicRepo.Repositories
         /// <summary>
         /// 
         /// </summary>
-        /// <param name="usernamePassword"></param>
+        /// <param name="username"></param>
         /// <param name="password"></param>
         /// <returns></returns>
         /// <exception cref="ArgumentNullException"/>
-        public Account? GetAccountByUsernamePassword(string usernamePassword, string password)
+        public Account? GetAccountByUsernamePassword(string username, string password)
         {
             Account? account = null;
 
@@ -93,7 +93,7 @@ namespace DabClinicRepo.Repositories
                 using (_context = new())
                 {
                     //TODO: hash the string password before compare
-                    account = _context.Accounts.FirstOrDefault(a => a.Username == usernamePassword
+                    account = _context.Accounts.FirstOrDefault(a => a.Username == username
                                                                 && a.PasswordHash == password);
                 }
             }
@@ -113,8 +113,8 @@ namespace DabClinicRepo.Repositories
         /// <param name="filterCondition"></param>
         /// <returns></returns>
         /// <exception cref="ArgumentNullException"/>
-        public List<Account>? FilterAccountBasedOnCondition(Func<Account, bool> filterCondition) { 
-            List<Account>? accounts = null;
+        public List<Account> FilterAccountBasedOnConditions(Func<Account, bool> filterCondition) { 
+            List<Account>? accounts = new();
 
             try
             {
