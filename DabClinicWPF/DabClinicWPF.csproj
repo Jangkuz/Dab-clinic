@@ -9,6 +9,13 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Common\background.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Dab_clinic_servies\Dab_clinic_servies.csproj">
+      <Private>True</Private>
+    </ProjectReference>
     <ProjectReference Include="..\DabClinicServies\DabClinicServies.csproj" />
   </ItemGroup>
 
@@ -16,6 +23,16 @@
     <None Update="appsettings.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+    <None Update="images\background.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="images\SystemUiconsUserMaleCircle.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Common\background.png" />
   </ItemGroup>
 
 </Project>
