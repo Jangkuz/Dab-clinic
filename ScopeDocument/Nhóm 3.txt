@@ -1,0 +1,31 @@
+Nhóm 3
+- Võ Đỗ Quang Dương SE181769
+- Đỗ Long Ánh SE181818
+- Trương Điền Quốc Bảo SE183377
+
+Project Name: 
+Nền tảng đặt lịch cho phòng khám nha khoa
+Actor: 
+	Guest
+	Customer
+	Dentist
+	Clinic Owner
+	System Admin
+Main Function: 
+	Guest:
+		- Xem thông tin phòng khám, lịch khám, danh mục dịch vụ. Đăng ký và xác thực thông tin cá nhân để thành customer.
+	Customer
+		- Đăng ký lịch khám 1 lần. Nhận thông báo nhắc lịch 1 ngày trước ngày khám.
+		- Đăng ký lịch khám, điều trị định kỳ (theo lịch điều trị của nha sĩ). VD: đăng ký lịch khám & điều trị niềng răng (mỗi tháng 1 lần trong suốt 12 tháng).
+		- Nhận kết quả khám, thông báo về lịch điều trị từ nha sĩ. 
+	Dentist:
+		- Xem được lịch khám trong tuần của mình.
+		- Lên lịch đề xuất lịch khám định kỳ cho bệnh nhân.
+		- Gửi kết quả khám lên hệ thống. Xem được hồ sơ khám của bệnh của bênh nhận mình đang điều trị.
+	Clinic Manager:
+		- Đăng ký thông tin bác sĩ của phòng khám mình. Tạo tài khoản bác sĩ.
+		- Nhập lịch hoạt động của phòng khám. VD: giờ mở cửa, giờ đóng cửa, time slot (time frame) của mỗi lần khám / điều trị. Cụ thể: 1 slot là 45 phút; số bệnh nhân khám cho 1 slot max là 3; số bệnh nhân điều trị cho 1 slot là 1.
+		- Quản lý thông tin bệnh nhân, lịch khám, bác sĩ. 
+	System Admin:
+		- Xét duyệt thông tin bác sĩ.
+		- Quản lý tài khoản.

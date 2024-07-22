@@ -1,10 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
-using Dab_clinic_repo.Models;
+using DabClinicRepo.Models;
+using DabClinicRepo.Repositories;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 
-namespace Dab_clinic_repo;
+namespace DabClinicRepo.Context;
 
 public partial class DabClinicContext : DbContext
 {
