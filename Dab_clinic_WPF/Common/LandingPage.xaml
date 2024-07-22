@@ -1,0 +1,435 @@
+﻿<Window x:Class="Dab_clinic_WPF.Common.LandingPage"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Dab_clinic_WPF.Common"
+        mc:Ignorable="d"
+        WindowStyle="None"
+        ResizeMode="NoResize"
+        WindowStartupLocation="CenterScreen"
+        Background="Transparent"
+        AllowsTransparency="True"
+        MouseDown="Window_MouseDown"
+        WindowState="Maximized">
+
+    <Border CornerRadius="13">
+        <Border.Background>
+            <ImageBrush ImageSource="D:\Code\CSharp\ChienNV\Project\Dab-clinic\Dab_clinic_WPF\images\background.png" />
+        </Border.Background>
+
+        <Border CornerRadius="10"
+                BorderThickness="2"
+                Opacity="0.8">
+            <!-- Back ground-->
+            <Border.BorderBrush>
+                <LinearGradientBrush StartPoint="0,0"
+                                     EndPoint="1,1">
+                    <GradientStop Color="MintCream"
+                                  Offset="0" />
+                    <GradientStop Color="CadetBlue"
+                                  Offset="0.75" />
+                    <GradientStop Color="WhiteSmoke"
+                                  Offset="1" />
+                </LinearGradientBrush>
+            </Border.BorderBrush>
+            <Border.Background>
+                <LinearGradientBrush StartPoint="0,1"
+                                     EndPoint="1,0">
+                    <GradientStop Color="MintCream"
+                                  Offset="0" />
+                    <GradientStop Color="CadetBlue"
+                                  Offset="0.95" />
+                </LinearGradientBrush>
+            </Border.Background>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="30"></RowDefinition>
+                    <RowDefinition Height="50"></RowDefinition>
+                    <RowDefinition Height="30"></RowDefinition>
+                    <RowDefinition Height="50"></RowDefinition>
+                    <RowDefinition Height="300"></RowDefinition>
+                    <RowDefinition Height="30"></RowDefinition>
+                    <RowDefinition Height="50"></RowDefinition>
+                    <RowDefinition Height="300"></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                </Grid.RowDefinitions>
+
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition></ColumnDefinition>
+                        <ColumnDefinition Width="25"></ColumnDefinition>
+                        <ColumnDefinition Width="25"></ColumnDefinition>
+                        <ColumnDefinition Width="5"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <Button x:Name="btnMinimize"
+                            BorderThickness="0"
+                            Content="-"
+                            Foreground="White"
+                            FontSize="18"
+                            FontFamily="Montserrat"
+                            Cursor="Hand"
+                            Grid.Column="1"
+                            Click="btnMinimize_Click">
+                        <Button.Style>
+                            <Style TargetType="Button">
+                                <Setter Property="Background"
+                                        Value="LightBlue" />
+                                <Style.Triggers>
+                                    <Trigger Property="IsMouseOver"
+                                             Value="True">
+                                        <Setter Property="Background"
+                                                Value="DarkBlue" />
+                                    </Trigger>
+                                </Style.Triggers>
+
+                            </Style>
+                        </Button.Style>
+                        <Button.Template>
+                            <ControlTemplate TargetType="Button">
+                                <Border Width="20"
+                                        Height="20"
+                                        CornerRadius="10"
+                                        Background="{TemplateBinding Background}">
+                                    <ContentPresenter VerticalAlignment="Center"
+                                                      HorizontalAlignment="Center" />
+                                </Border>
+                            </ControlTemplate>
+                        </Button.Template>
+
+                    </Button>
+                    <Button x:Name="btnClose"
+                            BorderThickness="0"
+                            Content="X"
+                            Foreground="Black"
+                            FontSize="12"
+                            FontFamily="Montserrat"
+                            Cursor="Hand"
+                            Grid.Column="2"
+                            Click="btnClose_Click">
+                        <Button.Style>
+                            <Style TargetType="Button">
+                                <Setter Property="Background"
+                                        Value="IndianRed" />
+                                <Style.Triggers>
+                                    <Trigger Property="IsMouseOver"
+                                             Value="True">
+                                        <Setter Property="Background"
+                                                Value="DarkRed" />
+                                    </Trigger>
+                                </Style.Triggers>
+
+                            </Style>
+                        </Button.Style>
+                        <Button.Template>
+                            <ControlTemplate TargetType="Button">
+                                <Border Width="20"
+                                        Height="20"
+                                        CornerRadius="10"
+                                        Background="{TemplateBinding Background}">
+                                    <ContentPresenter VerticalAlignment="Center"
+                                                      HorizontalAlignment="Center" />
+                                </Border>
+                            </ControlTemplate>
+                        </Button.Template>
+                    </Button>
+                </Grid>
+                <!-- Main content-->
+
+                <!-- Title Content-->
+                <Grid Grid.Row="1">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition></ColumnDefinition>
+                        <ColumnDefinition Width="150"></ColumnDefinition>
+                        <ColumnDefinition Width="150"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <Button x:Name="btnLogin"
+                            BorderThickness="0"
+                            Foreground="Black"
+                            FontSize="15"
+                            FontFamily="Montserrat"
+                            Cursor="Hand"
+                            Margin="5,0,5,0"
+                            Click="btnLogin_Click"
+                            Grid.Column="1">
+                        <Button.Style>
+                            <Style TargetType="Button">
+                                <Setter Property="Background"
+                                        Value="CadetBlue" />
+                                <Style.Triggers>
+                                    <Trigger Property="IsMouseOver"
+                                             Value="True">
+                                        <Setter Property="Background"
+                                                Value="#28AEED" />
+                                    </Trigger>
+                                </Style.Triggers>
+                            </Style>
+                        </Button.Style>
+                        <Button.Template>
+                            <ControlTemplate TargetType="Button">
+                                <Border Width="100"
+                                        Height="40"
+                                        CornerRadius="20"
+                                        Background="{TemplateBinding Background}">
+                                    <Grid>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="Auto" />
+                                            <ColumnDefinition Width="*" />
+                                        </Grid.ColumnDefinitions>
+                                        <Image Source="D:\Code\CSharp\ChienNV\Project\Dab-clinic\Dab_clinic_WPF\images\SystemUiconsUserMaleCircle.png"
+                                               Width="20"
+                                               Height="20"
+                                               VerticalAlignment="Center"
+                                               HorizontalAlignment="Left"
+                                               Margin="5,0,5,0" />
+                                        <ContentPresenter Grid.Column="1"
+                                                          VerticalAlignment="Center"
+                                                          HorizontalAlignment="Center"
+                                                          Content="Login" />
+                                    </Grid>
+                                </Border>
+                            </ControlTemplate>
+                        </Button.Template>
+                    </Button>
+                    <TextBlock Text="Welcome to DAB Clinic"
+                               Foreground="DarkSlateGray"
+                               FontSize="50"
+                               FontWeight="Medium"
+                               FontFamily="Montserrat"
+                               HorizontalAlignment="Center"
+                               Grid.Column="0" />
+                    <Button x:Name="btnSignup"
+                            BorderThickness="0"
+                            Foreground="Black"
+                            FontSize="15"
+                            FontFamily="Montserrat"
+                            Cursor="Hand"
+                            Margin="5,0,5,0"
+                            Click="btnSignup_Click"
+                            Grid.Column="2">
+                        <Button.Style>
+                            <Style TargetType="Button">
+                                <Setter Property="Background"
+                                        Value="CadetBlue" />
+                                <Style.Triggers>
+                                    <Trigger Property="IsMouseOver"
+                                             Value="True">
+                                        <Setter Property="Background"
+                                                Value="#28AEED" />
+                                    </Trigger>
+                                </Style.Triggers>
+                            </Style>
+                        </Button.Style>
+                        <Button.Template>
+                            <ControlTemplate TargetType="Button">
+                                <Border Width="100"
+                                        Height="40"
+                                        CornerRadius="20"
+                                        Background="{TemplateBinding Background}">
+                                    <Grid>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="Auto" />
+                                            <ColumnDefinition Width="*" />
+                                        </Grid.ColumnDefinitions>
+                                        <Image Source="D:\Code\CSharp\ChienNV\Project\Dab-clinic\Dab_clinic_WPF\images\icons8-sign-up-64.png"
+                                               Width="20"
+                                               Height="20"
+                                               VerticalAlignment="Center"
+                                               HorizontalAlignment="Left"
+                                               Margin="5,0,0,0" />
+                                        <ContentPresenter Grid.Column="1"
+                                                          VerticalAlignment="Center"
+                                                          HorizontalAlignment="Center"
+                                                          Content="Sign up" />
+                                    </Grid>
+                                </Border>
+                            </ControlTemplate>
+                        </Button.Template>
+                    </Button>
+                </Grid>
+                <!--Blank -->
+                <Grid Grid.Row="2"></Grid>
+                <!--Search and title for Service -->
+                <Grid Grid.Row="3">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition></ColumnDefinition>
+                        <ColumnDefinition Width="300"></ColumnDefinition>
+                        <ColumnDefinition Width="200"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    
+                    <TextBox x:Name="txt_ServiceName"
+                             FontSize="20"
+                             FontWeight="Medium"
+                             FontFamily="Montserrat"
+                             Foreground="Black"
+                             CaretBrush="LightGray"
+                             BorderBrush="DarkGray"
+                             BorderThickness="0,0,0,2"
+                             Height="28"
+                             VerticalContentAlignment="Center"
+                             Padding="10,0,0,0"
+                             Grid.Column="1">
+                    </TextBox>
+                    <TextBlock Text="List of service in DAB Clinic"
+                               Foreground="DarkSlateGray"
+                               FontSize="30"
+                               FontWeight="Medium"
+                               FontFamily="Montserrat"
+                               HorizontalAlignment="Center"
+                               Grid.Column="0" />
+                    <Button x:Name="btn_SearchService"
+                            BorderThickness="0"
+                            Foreground="Black"
+                            FontSize="17"
+                            FontFamily="Montserrat"
+                            Cursor="Hand"
+                            Margin="5,0,5,0"
+                            Click="btn_SearchService_Click"
+                            Grid.Column="2">
+                        <Button.Style>
+                            <Style TargetType="Button">
+                                <Setter Property="Background"
+                                        Value="CadetBlue" />
+                                <Style.Triggers>
+                                    <Trigger Property="IsMouseOver"
+                                             Value="True">
+                                        <Setter Property="Background"
+                                                Value="#28AEED" />
+                                    </Trigger>
+                                </Style.Triggers>
+                            </Style>
+                        </Button.Style>
+                        <Button.Template>
+                            <ControlTemplate TargetType="Button">
+                                <Border Width="150"
+                                        Height="40"
+                                        CornerRadius="20"
+                                        Background="{TemplateBinding Background}">
+                                    <Grid>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="Auto" />
+                                            <ColumnDefinition Width="*" />
+                                        </Grid.ColumnDefinitions>
+                                        <Image Source="D:\Code\CSharp\ChienNV\Project\Dab-clinic\Dab_clinic_WPF\images\OuiSearch.png"
+                                               Width="20"
+                                               Height="20"
+                                               VerticalAlignment="Center"
+                                               HorizontalAlignment="Left"
+                                               Margin="5,0,0,0" />
+                                        <ContentPresenter Grid.Column="1"
+                                                          VerticalAlignment="Center"
+                                                          HorizontalAlignment="Center"
+                                                          Content="Search Service" />
+                                    </Grid>
+                                </Border>
+                            </ControlTemplate>
+                        </Button.Template>
+                    </Button>
+
+                </Grid>
+                <!-- Data about service -->
+                <Grid Grid.Row="4">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <DataGrid x:Name="dgv_ServiceList"
+                              d:ItemsSource="{d:SampleData ItemCount=20}"
+                              SelectionChanged="DataGrid_SelectionChanged"
+                              Loaded="dgv_ServiceList_Loaded"
+                              Margin="10" />
+                </Grid>
+                <!--Blank-->
+                <Grid Grid.Row="5"></Grid>
+                <!--Search and title for Dentist-->
+                <Grid Grid.Row="6">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition></ColumnDefinition>
+                        <ColumnDefinition Width="300"></ColumnDefinition>
+                        <ColumnDefinition Width="200"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+
+                    <TextBox x:Name="txt_DetistName"
+                             FontSize="20"
+                             FontWeight="Medium"
+                             FontFamily="Montserrat"
+                             Foreground="Black"
+                             CaretBrush="LightGray"
+                             BorderBrush="DarkGray"
+                             BorderThickness="0,0,0,2"
+                             Height="28"
+                             VerticalContentAlignment="Center"
+                             Padding="10,0,0,0"
+                             Grid.Column="1">
+                    </TextBox>
+                    <TextBlock Text="List of dentist in DAB Clinic"
+                               Foreground="DarkSlateGray"
+                               FontSize="30"
+                               FontWeight="Medium"
+                               FontFamily="Montserrat"
+                               HorizontalAlignment="Center"
+                               Grid.Column="0" />
+                    <Button x:Name="btn_SearchDentist"
+                            BorderThickness="0"
+                            Foreground="Black"
+                            FontSize="17"
+                            FontFamily="Montserrat"
+                            Cursor="Hand"
+                            Margin="5,0,5,0"
+                            Click="btn_SearchDentist_Click"
+                            Grid.Column="2">
+                        <Button.Style>
+                            <Style TargetType="Button">
+                                <Setter Property="Background"
+                                        Value="CadetBlue" />
+                                <Style.Triggers>
+                                    <Trigger Property="IsMouseOver"
+                                             Value="True">
+                                        <Setter Property="Background"
+                                                Value="#28AEED" />
+                                    </Trigger>
+                                </Style.Triggers>
+                            </Style>
+                        </Button.Style>
+                        <Button.Template>
+                            <ControlTemplate TargetType="Button">
+                                <Border Width="150"
+                                        Height="40"
+                                        CornerRadius="20"
+                                        Background="{TemplateBinding Background}">
+                                    <Grid>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="Auto" />
+                                            <ColumnDefinition Width="*" />
+                                        </Grid.ColumnDefinitions>
+                                        <Image Source="D:\Code\CSharp\ChienNV\Project\Dab-clinic\Dab_clinic_WPF\images\OuiSearch.png"
+                                               Width="20"
+                                               Height="20"
+                                               VerticalAlignment="Center"
+                                               HorizontalAlignment="Left"
+                                               Margin="5,0,0,0" />
+                                        <ContentPresenter Grid.Column="1"
+                                                          VerticalAlignment="Center"
+                                                          HorizontalAlignment="Center"
+                                                          Content="Search Dentis" />
+                                    </Grid>
+                                </Border>
+                            </ControlTemplate>
+                        </Button.Template>
+                    </Button>
+
+                </Grid>
+                <!-- Data about dentist -->
+                <Grid Grid.Row="7">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <DataGrid x:Name="dgv_DentisList"
+                              d:ItemsSource="{d:SampleData ItemCount=20}"
+                              SelectionChanged="DataGrid_SelectionChanged"
+                              Loaded="dgv_ServiceList_Loaded"
+                              Margin="10" />
+                </Grid>
+            </Grid>
+        </Border>
+    </Border>
+</Window>
