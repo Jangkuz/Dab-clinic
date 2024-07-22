@@ -15,7 +15,7 @@
 
     <Border CornerRadius="13">
         <Border.Background>
-            <ImageBrush ImageSource="D:\Code\CSharp\ChienNV\Project\Dab-clinic\Dab_clinic_WPF\images\background.png" />
+            <ImageBrush ImageSource="D:\Code\CSharp\ChienNV\Project\Dab-clinic\DabClinicWPF\images\background.png" />
         </Border.Background>
 
         <Border CornerRadius="10"
