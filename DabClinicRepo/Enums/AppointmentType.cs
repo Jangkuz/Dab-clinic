@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace DabClinicRepo.Enums
 {
-    public static class AppointmentType
+    public enum AppointmentType
     {
-        public const string Treatment = "treatment";
-        public const string Checkup = "checkup";
-        //treatment,
-        //checkup
+        //public const string Treatment = "treatment";
+        //public const string Checkup = "checkup";
+        treatment = 0,
+        checkup = 1
     }
 }

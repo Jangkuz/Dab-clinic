@@ -7,12 +7,14 @@
         mc:Ignorable="d"
         Title="TestingGround" Height="450" Width="800">
     <Grid>
-        <DataGrid HorizontalAlignment="Left"
+        <DataGrid x:Name="dtgShowData"
+                  HorizontalAlignment="Left"
                   Height="239"
                   Margin="80,65,0,0"
                   VerticalAlignment="Top"
                   Width="480"
-                  d:ItemsSource="{d:SampleData ItemCount=5}" />
+                  d:ItemsSource="{d:SampleData ItemCount=20}"
+                  Loaded="dtgShowData_Loaded" />
 
     </Grid>
 </Window>

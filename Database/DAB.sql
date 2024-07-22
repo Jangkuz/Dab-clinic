@@ -1,6 +1,6 @@
 CREATE TABLE [Appointment] (
   [id] int PRIMARY KEY IDENTITY(1, 1),
-  [appointment_type] nvarchar(255) NOT NULL CHECK ([appointment_type] IN ('checkup', 'treatment')) DEFAULT 'checkup',
+  [appointment_type] int NOT NULL DEFAULT (1),
   [number] int NOT NULL,
   [date] date NOT NULL,
   [slot_id] int NOT NULL,
@@ -8,7 +8,7 @@ CREATE TABLE [Appointment] (
   [dentist_id] int NOT NULL,
   [cycle_count] int NOT NULL DEFAULT (0),
   [dentist_note] nvarchar(1000) NOT NULL DEFAULT '',
-  [status] nvarchar(255) NOT NULL CHECK ([status] IN ('booked', 'finished', 'canceled', 'no show')) DEFAULT 'booked',
+  [appointment_status] int NOT NULL DEFAULT (1),
   [price_final] int NOT NULL DEFAULT (0)
 )
 GO
@@ -31,7 +31,7 @@ CREATE TABLE [Clinic] (
   [open_hour] time(7) NOT NULL,
   [close_hour] time(7) NOT NULL,
   [working] bit NOT NULL DEFAULT (1),
-  [status] nvarchar(255) NOT NULL CHECK ([status] IN ('unverified', 'verified', 'removed')) DEFAULT 'verified'
+  [clinic_status] int NOT NULL DEFAULT (1)
 )
 GO
 
@@ -52,7 +52,7 @@ CREATE TABLE [ClinicSlot] (
   [slot_id] int PRIMARY KEY IDENTITY(1, 1),
   [max_checkup] int NOT NULL,
   [max_treatment] int NOT NULL,
-  [weekday] tinyint NOT NULL,
+  [weekday] int NOT NULL DEFAULT (0),
   [time_id] int NOT NULL,
   [status] bit NOT NULL DEFAULT 'true',
   [start] time(7) NOT NULL,
@@ -76,40 +76,26 @@ CREATE TABLE [Account] (
   [birthdate] date,
   [gender] nvarchar(16),
   [phone] nvarchar(10),
-  [role] nvarchar(255) NOT NULL CHECK ([role] IN ('Owner', 'Patient', 'Staff', 'Admin')) DEFAULT 'Patient',
+  [role] int NOT NULL DEFAULT (1),
   [active] bit NOT NULL DEFAULT (1),
-  [removed] bit NOT NULL
+  [removed] bit NOT NULL DEFAULT (0)
 )
 GO
 
-EXEC sp_addextendedproperty
-@name = N'Column_Description',
-@value = '0: Sunday 
-1: Monday 
-2: Tuesday 
-3: Wednesday 
-4: Thursday 
-5: Friday 
-6: Saturday',
-@level0type = N'Schema', @level0name = 'dbo',
-@level1type = N'Table',  @level1name = 'ClinicSlot',
-@level2type = N'Column', @level2name = 'weekday';
+ALTER TABLE [ClinicService] ADD FOREIGN KEY ([category_id]) REFERENCES [ServiceCategory] ([id])
 GO
 
-ALTER TABLE [ClinicService] ADD CONSTRAINT [FKClinicServ913410] FOREIGN KEY ([category_id]) REFERENCES [ServiceCategory] ([id])
+ALTER TABLE [BookedService] ADD FOREIGN KEY ([service_id]) REFERENCES [ClinicService] ([id])
 GO
 
-ALTER TABLE [BookedService] ADD CONSTRAINT [FKBookedServ419526] FOREIGN KEY ([service_id]) REFERENCES [ClinicService] ([id])
+ALTER TABLE [BookedService] ADD FOREIGN KEY ([appointment_id]) REFERENCES [Appointment] ([id])
 GO
 
-ALTER TABLE [BookedService] ADD CONSTRAINT [FKBookedServ274862] FOREIGN KEY ([appointment_id]) REFERENCES [Appointment] ([id])
+ALTER TABLE [Appointment] ADD FOREIGN KEY ([customer_id]) REFERENCES [Account] ([id])
 GO
 
-ALTER TABLE [Appointment] ADD CONSTRAINT [FKAppointmen366296] FOREIGN KEY ([customer_id]) REFERENCES [Account] ([id])
+ALTER TABLE [Appointment] ADD FOREIGN KEY ([dentist_id]) REFERENCES [Account] ([id])
 GO
 
-ALTER TABLE [Appointment] ADD CONSTRAINT [FKAppointmen157913] FOREIGN KEY ([dentist_id]) REFERENCES [Account] ([id])
-GO
-
-ALTER TABLE [Appointment] ADD CONSTRAINT [FKAppointmen998789] FOREIGN KEY ([slot_id]) REFERENCES [ClinicSlot] ([slot_id])
+ALTER TABLE [Appointment] ADD FOREIGN KEY ([slot_id]) REFERENCES [ClinicSlot] ([slot_id])
 GO

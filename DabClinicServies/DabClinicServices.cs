@@ -7,13 +7,13 @@ using System.Threading.Tasks;
 
 namespace DabClinicServies
 {
-    public class ClinicServices
+    public class DabClinicServices
     {
         private ClinicRepository _clinicRepo;
         private AppointmnetRepository _appointmnetRepo;
         private ClinicSlotRepository _clinicSlotRepo;
 
-        public ClinicServices()
+        public DabClinicServices()
         {
             _clinicRepo = ClinicRepository.GetInstance();
             _appointmnetRepo = AppointmnetRepository.GetInstance();

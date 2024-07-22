@@ -14,9 +14,3 @@ Bussiness rule
 5. Phone number must be a valid phone number.
 
 
-
-Signup required fields:
-string username
-string email
-string password
-Gender gender

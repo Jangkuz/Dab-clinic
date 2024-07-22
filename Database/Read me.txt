@@ -2,4 +2,7 @@ Run Dab_clinic_script.sql first
 
 If that fail, run DAB.sql
 
+run scaffold, in scaffold already have GetConnectionString() func
+
 If that also fail, contact Zalo =]]
+

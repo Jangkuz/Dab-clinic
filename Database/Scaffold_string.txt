@@ -1,1 +1,21 @@
-dotnet ef dbcontext scaffold "Server=(local);uid=sa;pwd=12345;database=Dab_clinic;TrustServerCertificate=True" Microsoft.EntityFrameworkCore.SqlServer --output-dir Models --context-dir ".\"
+dotnet ef dbcontext scaffold "Server=(local);uid=sa;pwd=12345;database=Dab_clinic;TrustServerCertificate=True" Microsoft.EntityFrameworkCore.SqlServer --output-dir Models --context-dir "Context" --data-annotations
+
+Migration CLI:
+	
+	dotnet ef migrations add mygrationName
+	
+	dotnet ef database update
+
+
+Connection string function:
+
+    private string GetConnectionString()
+    {
+        IConfiguration config = new ConfigurationBuilder()
+             .SetBasePath(Directory.GetCurrentDirectory())
+                    .AddJsonFile("appsettings.json", true, true)
+                    .Build();
+        var strConn = config["ConnectionStrings:DefaultConnectionStringDB"];
+
+        return strConn;
+    }
