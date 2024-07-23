@@ -45,7 +45,7 @@
             <Grid>
                 <Grid.RowDefinitions>
                     <RowDefinition Height="30"></RowDefinition>
-                    <RowDefinition Height="50"></RowDefinition>
+                    <RowDefinition Height="70"></RowDefinition>
                     <RowDefinition Height="30"></RowDefinition>
                     <RowDefinition Height="50"></RowDefinition>
                     <RowDefinition Height="300"></RowDefinition>
@@ -141,71 +141,23 @@
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition></ColumnDefinition>
                         <ColumnDefinition Width="150"></ColumnDefinition>
-                        <ColumnDefinition Width="150"></ColumnDefinition>
                     </Grid.ColumnDefinitions>
-                    <Button x:Name="btnLogin"
-                            BorderThickness="0"
-                            Foreground="Black"
-                            FontSize="15"
-                            FontFamily="Montserrat"
-                            Cursor="Hand"
-                            Margin="5,0,5,0"
-                            Click="btnLogin_Click"
-                            Grid.Column="1">
-                        <Button.Style>
-                            <Style TargetType="Button">
-                                <Setter Property="Background"
-                                        Value="CadetBlue" />
-                                <Style.Triggers>
-                                    <Trigger Property="IsMouseOver"
-                                             Value="True">
-                                        <Setter Property="Background"
-                                                Value="#28AEED" />
-                                    </Trigger>
-                                </Style.Triggers>
-                            </Style>
-                        </Button.Style>
-                        <Button.Template>
-                            <ControlTemplate TargetType="Button">
-                                <Border Width="100"
-                                        Height="40"
-                                        CornerRadius="20"
-                                        Background="{TemplateBinding Background}">
-                                    <Grid>
-                                        <Grid.ColumnDefinitions>
-                                            <ColumnDefinition Width="Auto" />
-                                            <ColumnDefinition Width="*" />
-                                        </Grid.ColumnDefinitions>
-                                        <Image Source="pack://siteoforigin:,,,/images/SystemUiconsUserMaleCircle.png"
-                                               Width="20"
-                                               Height="20"
-                                               VerticalAlignment="Center"
-                                               HorizontalAlignment="Left"
-                                               Margin="5,0,5,0" />
-                                        <ContentPresenter Grid.Column="1"
-                                                          VerticalAlignment="Center"
-                                                          HorizontalAlignment="Center"
-                                                          Content="Login" />
-                                    </Grid>
-                                </Border>
-                            </ControlTemplate>
-                        </Button.Template>
-                    </Button>
-                    <TextBlock Text="Welcome to DAB Clinic"
+
+                    <TextBlock Text="Your homepage "
                                Foreground="DarkSlateGray"
                                FontSize="50"
                                FontWeight="Medium"
                                FontFamily="Montserrat"
                                HorizontalAlignment="Center"
                                Grid.Column="0" />
-                    <Button x:Name="btnSignup"
+                    <Button x:Name="btnLogout"
                             BorderThickness="0"
                             Foreground="Black"
                             FontSize="15"
                             FontFamily="Montserrat"
                             Cursor="Hand"
                             Margin="5,0,5,0"
-                            Click="btnSignup_Click"
+                            Click="btnLogout_Click"
                             Grid.Column="2">
                         <Button.Style>
                             <Style TargetType="Button">
@@ -240,7 +192,7 @@
                                         <ContentPresenter Grid.Column="1"
                                                           VerticalAlignment="Center"
                                                           HorizontalAlignment="Center"
-                                                          Content="Sign up" />
+                                                          Content="Logout" />
                                     </Grid>
                                 </Border>
                             </ControlTemplate>
@@ -328,109 +280,7 @@
 
                 </Grid>
                 <!-- Data about service -->
-                <Grid Grid.Row="4">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition></ColumnDefinition>
-                    </Grid.ColumnDefinitions>
-                    <DataGrid x:Name="dgv_ServiceList"
-                              d:ItemsSource="{d:SampleData ItemCount=20}"
-                              SelectionChanged="DataGrid_SelectionChanged"
-                              Margin="10"
-                              Loaded="dgv_ServiceList_Loaded" />
-                </Grid>
-                <!--Blank-->
-                <Grid Grid.Row="5"></Grid>
-                <!--Search and title for Dentist-->
-                <Grid Grid.Row="6">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition></ColumnDefinition>
-                        <ColumnDefinition Width="300"></ColumnDefinition>
-                        <ColumnDefinition Width="200"></ColumnDefinition>
-                    </Grid.ColumnDefinitions>
-
-                    <TextBox x:Name="txt_DetistName"
-                             FontSize="20"
-                             FontWeight="Medium"
-                             FontFamily="Montserrat"
-                             Foreground="Black"
-                             CaretBrush="LightGray"
-                             BorderBrush="DarkGray"
-                             BorderThickness="0,0,0,2"
-                             Height="28"
-                             VerticalContentAlignment="Center"
-                             Padding="10,0,0,0"
-                             Grid.Column="1">
-                    </TextBox>
-                    <TextBlock Text="List of dentists in DAB Clinic"
-                               Foreground="DarkSlateGray"
-                               FontSize="30"
-                               FontWeight="Medium"
-                               FontFamily="Montserrat"
-                               HorizontalAlignment="Center"
-                               Grid.Column="0" />
-                    <!--Button Search Dentist -->
-                    <Button x:Name="btn_SearchDentist"
-                            BorderThickness="0"
-                            Foreground="Black"
-                            FontSize="17"
-                            FontFamily="Montserrat"
-                            Cursor="Hand"
-                            Margin="5,0,5,0"
-                            Click="btn_SearchDentist_Click"
-                            Grid.Column="2">
-                        <Button.Style>
-                            <Style TargetType="Button">
-                                <Setter Property="Background"
-                                        Value="CadetBlue" />
-                                <Style.Triggers>
-                                    <Trigger Property="IsMouseOver"
-                                             Value="True">
-                                        <Setter Property="Background"
-                                                Value="#28AEED" />
-                                    </Trigger>
-                                </Style.Triggers>
-                            </Style>
-                        </Button.Style>
-                        <Button.Template>
-                            <ControlTemplate TargetType="Button">
-                                <Border Width="150"
-                                        Height="40"
-                                        CornerRadius="20"
-                                        Background="{TemplateBinding Background}">
-                                    <Grid>
-                                        <Grid.ColumnDefinitions>
-                                            <ColumnDefinition Width="Auto" />
-                                            <ColumnDefinition Width="*" />
-                                        </Grid.ColumnDefinitions>
-                                        <Image Source="pack://siteoforigin:,,,/images/OuiSearch.png"
-                                               Width="20"
-                                               Height="20"
-                                               VerticalAlignment="Center"
-                                               HorizontalAlignment="Left"
-                                               Margin="5,0,0,0" />
-                                        <ContentPresenter Grid.Column="1"
-                                                          VerticalAlignment="Center"
-                                                          HorizontalAlignment="Center"
-                                                          Content="Search Dentis" />
-                                    </Grid>
-                                </Border>
-                            </ControlTemplate>
-                        </Button.Template>
-                    </Button>
-
-                </Grid>
-                <!-- Data about dentist -->
-                <Grid Grid.Row="7">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition></ColumnDefinition>
-                    </Grid.ColumnDefinitions>
-                    <DataGrid x:Name="dgv_DentisList"
-                              d:ItemsSource="{d:SampleData ItemCount=20}"
-                              SelectionChanged="DataGrid_SelectionChanged"
-                              Loaded="dgv_DentisList_Loaded"
-                              Margin="10" />
-                </Grid>
-                <Canvas Grid.Row="8" />
+                
             </Grid>
         </Border>
     </Border>

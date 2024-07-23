@@ -45,11 +45,11 @@ namespace Dab_clinic_WPF.Common
         //============================================================
         private void btnLogin_Click(object sender, RoutedEventArgs e)
         {
-            this.Close();
-            this.Owner.Close();
             HomePage homePage = new HomePage();
-            homePage.Owner = this;
+            homePage.Owner = this.Owner;
             homePage.Show();
+            this.Close();
+            
             //Mo man hinh chuc nang
 
 

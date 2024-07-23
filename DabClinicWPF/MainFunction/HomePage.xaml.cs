@@ -1,4 +1,7 @@
-﻿using System;
+﻿using Dab_clinic_WPF.Common;
+using DabClinicRepo.Models;
+using DabClinicServies;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -22,6 +25,69 @@ namespace DabClinicWPF.MainFunction
         public HomePage()
         {
             InitializeComponent();
+        }
+        private void Window_MouseDown(object sender, MouseEventArgs e)
+        {
+            if (e.LeftButton == MouseButtonState.Pressed)
+            {
+                DragMove();
+            }
+        }
+
+        //Thu nho cua so 
+        private void btnMinimize_Click(object sender, RoutedEventArgs e)
+        {
+            WindowState = WindowState.Minimized;
+        }
+
+        //Dong app
+        private void btnClose_Click(object sender, RoutedEventArgs e)
+        {
+            Application.Current.Shutdown();
+        }
+
+        private void btnSearch_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void btnLogin_Click(object sender, RoutedEventArgs e)
+        {
+            Login login = new Login();
+            login.ShowDialog();
+            login.Owner = this;
+        }
+
+
+        private void DataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
+
+        private void btnSignup_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void btn_SearchService_Click(object sender, RoutedEventArgs e)
+        {
+            
+        }
+
+
+        private void btn_SearchDentist_Click(object sender, RoutedEventArgs e)
+        {
+            
+        }
+
+        private void dgv_DentisList_Loaded(object sender, RoutedEventArgs e)
+        {
+            
+        }
+
+        private void btnLogout_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }
