@@ -15,7 +15,7 @@
 
     <Border CornerRadius="13">
         <Border.Background>
-            <ImageBrush ImageSource="D:\Code\CSharp\ChienNV\Project\Dab-clinic\DabClinicWPF\images\background.png" />
+            <ImageBrush ImageSource="pack://siteoforigin:,,,/images/background.png" />
         </Border.Background>
 
         <Border CornerRadius="10"
@@ -176,7 +176,7 @@
                                             <ColumnDefinition Width="Auto" />
                                             <ColumnDefinition Width="*" />
                                         </Grid.ColumnDefinitions>
-                                        <Image Source="D:\Code\CSharp\ChienNV\Project\Dab-clinic\Dab_clinic_WPF\images\SystemUiconsUserMaleCircle.png"
+                                        <Image Source="pack://siteoforigin:,,,/images/SystemUiconsUserMaleCircle.png"
                                                Width="20"
                                                Height="20"
                                                VerticalAlignment="Center"
@@ -231,7 +231,7 @@
                                             <ColumnDefinition Width="Auto" />
                                             <ColumnDefinition Width="*" />
                                         </Grid.ColumnDefinitions>
-                                        <Image Source="D:\Code\CSharp\ChienNV\Project\Dab-clinic\Dab_clinic_WPF\images\icons8-sign-up-64.png"
+                                        <Image Source="pack://siteoforigin:,,,/images/icons8-sign-up-64.png"
                                                Width="20"
                                                Height="20"
                                                VerticalAlignment="Center"
@@ -310,7 +310,7 @@
                                             <ColumnDefinition Width="Auto" />
                                             <ColumnDefinition Width="*" />
                                         </Grid.ColumnDefinitions>
-                                        <Image Source="D:\Code\CSharp\ChienNV\Project\Dab-clinic\Dab_clinic_WPF\images\OuiSearch.png"
+                                        <Image Source="pack://siteoforigin:,,,/images/OuiSearch.png"
                                                Width="20"
                                                Height="20"
                                                VerticalAlignment="Center"
@@ -335,8 +335,8 @@
                     <DataGrid x:Name="dgv_ServiceList"
                               d:ItemsSource="{d:SampleData ItemCount=20}"
                               SelectionChanged="DataGrid_SelectionChanged"
-                              Loaded="dgv_ServiceList_Loaded"
-                              Margin="10" />
+                              Margin="10"
+                              Loaded="dgv_ServiceList_Loaded" />
                 </Grid>
                 <!--Blank-->
                 <Grid Grid.Row="5"></Grid>
@@ -401,7 +401,7 @@
                                             <ColumnDefinition Width="Auto" />
                                             <ColumnDefinition Width="*" />
                                         </Grid.ColumnDefinitions>
-                                        <Image Source="D:\Code\CSharp\ChienNV\Project\Dab-clinic\Dab_clinic_WPF\images\OuiSearch.png"
+                                        <Image Source="pack://siteoforigin:,,,/images/OuiSearch.png"
                                                Width="20"
                                                Height="20"
                                                VerticalAlignment="Center"
@@ -426,7 +426,7 @@
                     <DataGrid x:Name="dgv_DentisList"
                               d:ItemsSource="{d:SampleData ItemCount=20}"
                               SelectionChanged="DataGrid_SelectionChanged"
-                              Loaded="dgv_ServiceList_Loaded"
+                              Loaded="dgv_DentisList_Loaded"
                               Margin="10" />
                 </Grid>
             </Grid>

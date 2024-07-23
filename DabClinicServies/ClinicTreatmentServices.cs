@@ -10,12 +10,12 @@ using System.Threading.Tasks;
 
 namespace DabClinicServies
 {
-    public class ClinicServiceServices
+    public class ClinicTreatmentServices
     {
         private ClinicServiceRepository _serviceRepo;
         private ServiceCategoryRepository _categoryRepo;
 
-        public ClinicServiceServices()
+        public ClinicTreatmentServices()
         {
             _serviceRepo = ClinicServiceRepository.GetInstance();
             _categoryRepo = ServiceCategoryRepository.GetInstance();

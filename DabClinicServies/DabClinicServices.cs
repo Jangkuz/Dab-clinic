@@ -1,4 +1,8 @@
-﻿using DabClinicRepo.Repositories;
+﻿using DabClinicRepo.Enums;
+using DabClinicRepo.HelperClass;
+using DabClinicRepo.Models;
+using DabClinicRepo.Repositories;
+using Microsoft.IdentityModel.Tokens;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -19,6 +23,7 @@ namespace DabClinicServies
             _appointmnetRepo = AppointmnetRepository.GetInstance();
             _clinicSlotRepo = ClinicSlotRepository.GetInstance();   
         }
+
 
         //Get Clinic detail
         //CRUD clinic slot??
