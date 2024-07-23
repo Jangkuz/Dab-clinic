@@ -21,6 +21,7 @@ namespace DabClinicRepo.HelperClass
             {"ACC005", "Password must be between 3 and 10 characters long" },
             {"ACC006", "Fullname must be between 3 and 30 characters long" },
             {"ACC007", "Phone number must be a valid phone number" },
+            {"ERR069", "Unknow error" },
 
         };
 
@@ -30,6 +31,7 @@ namespace DabClinicRepo.HelperClass
         public const string PwdLengthErr = "ACC005";
         public const string FullnameLengthErr = "ACC006";
         public const string PhonenumberValidErr = "ACC007";
+        public const string UnknowError= "ERR069";
 
     }
 }
