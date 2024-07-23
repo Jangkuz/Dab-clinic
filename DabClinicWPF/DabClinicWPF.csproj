@@ -23,15 +23,6 @@
     <None Update="images\background.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Update="images\icons8-sign-up-64.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Update="images\OuiSearch.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Update="images\SystemUiconsBell.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
     <None Update="images\SystemUiconsUserMaleCircle.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>

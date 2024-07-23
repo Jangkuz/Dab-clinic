@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DabClinicWPF.MainFunction;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -46,6 +47,9 @@ namespace Dab_clinic_WPF.Common
         {
             this.Close();
             this.Owner.Close();
+            HomePage homePage = new HomePage();
+            homePage.Owner = this;
+            homePage.Show();
             //Mo man hinh chuc nang
 
 
