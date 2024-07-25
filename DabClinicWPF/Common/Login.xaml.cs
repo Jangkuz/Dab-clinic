@@ -29,6 +29,16 @@ namespace Dab_clinic_WPF.Common
             InitializeComponent();
             _accService = new();
         }
+        // For debugging puposses!!
+        private void txtEmail_Loaded(object sender, RoutedEventArgs e)
+        {
+            txtUsername.Text = "abc1";
+        }
+        private void txtPass_Loaded(object sender, RoutedEventArgs e)
+        {
+            txtPass.Password = "12345";
+        }
+        // For debugging puposses!!
         private void Window_MouseDown(object sender, MouseEventArgs e)
         {
             if (e.LeftButton == MouseButtonState.Pressed)
@@ -53,7 +63,7 @@ namespace Dab_clinic_WPF.Common
 
             Account? loginAccount = null;
             List<String> errorList = new();
-            bool canLogin = _accService.Login(txtEmail.Text, txtPass.ToString(), out loginAccount, out errorList);
+            bool canLogin = _accService.Login(txtUsername.Text, txtPass.Password.ToString(), out loginAccount, out errorList);
             if (!canLogin)
             {
                 //iterate error list to show error dialog box
@@ -70,15 +80,18 @@ namespace Dab_clinic_WPF.Common
 
             //pass in loginAccount to HomePage
 
-            this.Close();
-            this.Owner.Close();
             HomePage homePage = new HomePage();
-            homePage.Owner = this;
+            homePage.currentUser = loginAccount;
+            //homePage.Owner = this;
             homePage.Show();
+            this.Owner.Close();
+            this.Close();
             //Mo man hinh chuc nang
 
 
         }
+
+
     }
 
 }

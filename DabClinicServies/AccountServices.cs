@@ -34,6 +34,7 @@ namespace DabClinicServies
                     !password.IsNullOrEmpty())
                 {
                     loginAccount = _accountRepo.GetAccountByUsernamePassword(username, password);
+                    result = true;
                 }
                 else
                 {
