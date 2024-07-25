@@ -71,44 +71,55 @@ namespace DabClinicWPF.MainFunction
 
         }
 
-        private void btn_SearchService_Click(object sender, RoutedEventArgs e)
+        private void btnLogout_Click(object sender, RoutedEventArgs e)
         {
-            Func<ClinicService, bool> filterByName = cliService => cliService.ServiceName!.ToLower().Equals(txt_ServiceName.Text.ToLower());
-            var serviceList = _clinicTreatmentService.GetClinicServices(filterByName);
-            SetServiceDataGrid(dataList: serviceList);
-        }
 
+        }
 
         private void btn_SearchDentist_Click(object sender, RoutedEventArgs e)
         {
-            Func<Account, bool> filterByName = account => account.Fullname!.ToLower().Equals(txt_DetistName.Text.ToLower());
-            var denstistList = _accService.GetDentisList(filterByName);
-            SetDentistDataGrid(dataList: denstistList);
+
         }
 
-        private void dgv_DentisList_Loaded(object sender, RoutedEventArgs e)
+        private void btnBookAppointment_Click(object sender, RoutedEventArgs e)
         {
-            SetDentistDataGrid(dataList: _accService.GetDentisList());
+
         }
 
-        private void dgv_ServiceList_Loaded(object sender, RoutedEventArgs e)
+        private void btnViewResult_Click(object sender, RoutedEventArgs e)
         {
-            SetServiceDataGrid(dataList: _clinicTreatmentService.GetClinicServices());
 
         }
 
-        private void SetDentistDataGrid<T>(List<T> dataList)
+        private void btnViewNoti_Click(object sender, RoutedEventArgs e)
         {
-            dgv_DentisList.ItemsSource = null;
-            dgv_DentisList.ItemsSource = dataList;
+
         }
 
-        private void SetServiceDataGrid<T>(List<T> dataList)
+        private void btnSetting_Click(object sender, RoutedEventArgs e)
         {
-            dgv_ServiceList.ItemsSource = null;
-            dgv_ServiceList.ItemsSource = dataList;
+
         }
 
+        private void btnViewDentistList_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void btnViewChedule_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void btnViewPatients_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void btnViewMyInfo_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
 
