@@ -64,11 +64,8 @@ namespace Dab_clinic_WPF.Common
                     return;
                 }
 
-
                 MessageBox.Show(ErrorMessages.Messages[ErrorMessages.UnknowError], "Unknow error", MessageBoxButton.OK, MessageBoxImage.Exclamation);
-
-
-
+                return;
             }
 
             //pass in loginAccount to HomePage

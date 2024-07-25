@@ -4,6 +4,11 @@
              xmlns:local="clr-namespace:Dab_clinic_WPF"
              StartupUri="MainFunction/HomePage.xaml">
     <Application.Resources>
-         
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="CSS/DefaultButton.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+
     </Application.Resources>
 </Application>

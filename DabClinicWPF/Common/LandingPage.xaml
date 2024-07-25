@@ -21,7 +21,7 @@
         <Border CornerRadius="10"
                 BorderThickness="2"
                 Opacity="0.8">
-            <!-- Back ground-->
+             <!--Back ground-->
             <Border.BorderBrush>
                 <LinearGradientBrush StartPoint="0,0"
                                      EndPoint="1,1">
@@ -42,6 +42,7 @@
                                   Offset="0.95" />
                 </LinearGradientBrush>
             </Border.Background>
+
             <Grid>
                 <Grid.RowDefinitions>
                     <RowDefinition Height="30"></RowDefinition>
@@ -63,28 +64,9 @@
                         <ColumnDefinition Width="5"></ColumnDefinition>
                     </Grid.ColumnDefinitions>
                     <Button x:Name="btnMinimize"
-                            BorderThickness="0"
-                            Content="-"
-                            Foreground="White"
-                            FontSize="18"
-                            FontFamily="Montserrat"
-                            Cursor="Hand"
+                            Style="{StaticResource DefaultMinimize}"
                             Grid.Column="1"
                             Click="btnMinimize_Click">
-                        <Button.Style>
-                            <Style TargetType="Button">
-                                <Setter Property="Background"
-                                        Value="LightBlue" />
-                                <Style.Triggers>
-                                    <Trigger Property="IsMouseOver"
-                                             Value="True">
-                                        <Setter Property="Background"
-                                                Value="DarkBlue" />
-                                    </Trigger>
-                                </Style.Triggers>
-
-                            </Style>
-                        </Button.Style>
                         <Button.Template>
                             <ControlTemplate TargetType="Button">
                                 <Border Width="20"
@@ -99,28 +81,9 @@
 
                     </Button>
                     <Button x:Name="btnClose"
-                            BorderThickness="0"
-                            Content="X"
-                            Foreground="Black"
-                            FontSize="12"
-                            FontFamily="Montserrat"
-                            Cursor="Hand"
+                            Style="{StaticResource DefaultClose}"
                             Grid.Column="2"
                             Click="btnClose_Click">
-                        <Button.Style>
-                            <Style TargetType="Button">
-                                <Setter Property="Background"
-                                        Value="IndianRed" />
-                                <Style.Triggers>
-                                    <Trigger Property="IsMouseOver"
-                                             Value="True">
-                                        <Setter Property="Background"
-                                                Value="DarkRed" />
-                                    </Trigger>
-                                </Style.Triggers>
-
-                            </Style>
-                        </Button.Style>
                         <Button.Template>
                             <ControlTemplate TargetType="Button">
                                 <Border Width="20"
@@ -144,27 +107,10 @@
                         <ColumnDefinition Width="150"></ColumnDefinition>
                     </Grid.ColumnDefinitions>
                     <Button x:Name="btnLogin"
-                            BorderThickness="0"
-                            Foreground="Black"
+                            Style="{StaticResource DefaultButton}"
                             FontSize="15"
-                            FontFamily="Montserrat"
-                            Cursor="Hand"
-                            Margin="5,0,5,0"
                             Click="btnLogin_Click"
                             Grid.Column="1">
-                        <Button.Style>
-                            <Style TargetType="Button">
-                                <Setter Property="Background"
-                                        Value="CadetBlue" />
-                                <Style.Triggers>
-                                    <Trigger Property="IsMouseOver"
-                                             Value="True">
-                                        <Setter Property="Background"
-                                                Value="#28AEED" />
-                                    </Trigger>
-                                </Style.Triggers>
-                            </Style>
-                        </Button.Style>
                         <Button.Template>
                             <ControlTemplate TargetType="Button">
                                 <Border Width="100"
@@ -199,27 +145,10 @@
                                HorizontalAlignment="Center"
                                Grid.Column="0" />
                     <Button x:Name="btnSignup"
-                            BorderThickness="0"
-                            Foreground="Black"
+                            Style="{StaticResource DefaultButton}"
                             FontSize="15"
-                            FontFamily="Montserrat"
-                            Cursor="Hand"
-                            Margin="5,0,5,0"
                             Click="btnSignup_Click"
                             Grid.Column="2">
-                        <Button.Style>
-                            <Style TargetType="Button">
-                                <Setter Property="Background"
-                                        Value="CadetBlue" />
-                                <Style.Triggers>
-                                    <Trigger Property="IsMouseOver"
-                                             Value="True">
-                                        <Setter Property="Background"
-                                                Value="#28AEED" />
-                                    </Trigger>
-                                </Style.Triggers>
-                            </Style>
-                        </Button.Style>
                         <Button.Template>
                             <ControlTemplate TargetType="Button">
                                 <Border Width="100"
@@ -278,27 +207,10 @@
                                HorizontalAlignment="Center"
                                Grid.Column="0" />
                     <Button x:Name="btn_SearchService"
-                            BorderThickness="0"
-                            Foreground="Black"
+                            Style="{StaticResource DefaultButton}"
                             FontSize="17"
-                            FontFamily="Montserrat"
-                            Cursor="Hand"
-                            Margin="5,0,5,0"
                             Click="btn_SearchService_Click"
                             Grid.Column="2">
-                        <Button.Style>
-                            <Style TargetType="Button">
-                                <Setter Property="Background"
-                                        Value="CadetBlue" />
-                                <Style.Triggers>
-                                    <Trigger Property="IsMouseOver"
-                                             Value="True">
-                                        <Setter Property="Background"
-                                                Value="#28AEED" />
-                                    </Trigger>
-                                </Style.Triggers>
-                            </Style>
-                        </Button.Style>
                         <Button.Template>
                             <ControlTemplate TargetType="Button">
                                 <Border Width="150"
@@ -370,27 +282,10 @@
                                Grid.Column="0" />
                         <!--Button Search Dentist -->
                     <Button x:Name="btn_SearchDentist"
-                            BorderThickness="0"
-                            Foreground="Black"
+                            Style="{StaticResource DefaultButton}"
                             FontSize="17"
-                            FontFamily="Montserrat"
-                            Cursor="Hand"
-                            Margin="5,0,5,0"
                             Click="btn_SearchDentist_Click"
                             Grid.Column="2">
-                        <Button.Style>
-                            <Style TargetType="Button">
-                                <Setter Property="Background"
-                                        Value="CadetBlue" />
-                                <Style.Triggers>
-                                    <Trigger Property="IsMouseOver"
-                                             Value="True">
-                                        <Setter Property="Background"
-                                                Value="#28AEED" />
-                                    </Trigger>
-                                </Style.Triggers>
-                            </Style>
-                        </Button.Style>
                         <Button.Template>
                             <ControlTemplate TargetType="Button">
                                 <Border Width="150"
