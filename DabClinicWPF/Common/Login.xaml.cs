@@ -29,7 +29,7 @@ namespace Dab_clinic_WPF.Common
             InitializeComponent();
             _accService = new();
         }
-        // For debugging puposses!!
+        // ================ For debugging puposses!! ================ 
         private void txtEmail_Loaded(object sender, RoutedEventArgs e)
         {
             txtUsername.Text = "abc1";
@@ -38,7 +38,7 @@ namespace Dab_clinic_WPF.Common
         {
             txtPass.Password = "12345";
         }
-        // For debugging puposses!!
+        // ================ For debugging puposses!! ================ 
         private void Window_MouseDown(object sender, MouseEventArgs e)
         {
             if (e.LeftButton == MouseButtonState.Pressed)

@@ -12,5 +12,29 @@ namespace DabClinicRepo.HelperClass
         {
             return x => filters.All(filter => filter(x));
         }
+
+        public static T? GetDtgSelectedItemAttr<T>(object selectedItem, string attrName)
+        {
+            if (selectedItem == null)
+            {
+                return default(T);
+            }
+
+            T result = default(T);
+
+            try
+            {
+                System.Type itemType = selectedItem.GetType();
+                result = (T)itemType
+                    .GetProperty(attrName)!
+                    .GetValue(selectedItem, null)!;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("GetDtgSelectedItemAttr: " + ex.Message);
+            }
+            return result;
+
+        }
     }
 }
