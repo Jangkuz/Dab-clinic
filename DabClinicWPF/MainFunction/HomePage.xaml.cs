@@ -1,4 +1,5 @@
 ﻿using Dab_clinic_WPF.Common;
+using DabClinicRepo.Enums;
 using DabClinicRepo.Models;
 using DabClinicServies;
 using System;
@@ -82,11 +83,6 @@ namespace DabClinicWPF.MainFunction
             this.Close();
         }
 
-        private void btn_SearchDentist_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
         private void btnBookAppointment_Click(object sender, RoutedEventArgs e)
         {
 
@@ -109,7 +105,9 @@ namespace DabClinicWPF.MainFunction
 
         private void btnViewDentistList_Click(object sender, RoutedEventArgs e)
         {
-
+            ManageAccount manageAccount = new ManageAccount();
+            manageAccount.ManageRole = Role.Staff;
+            manageAccount.ShowDialog();
         }
 
         private void btnViewChedule_Click(object sender, RoutedEventArgs e)
@@ -119,7 +117,10 @@ namespace DabClinicWPF.MainFunction
 
         private void btnViewPatients_Click(object sender, RoutedEventArgs e)
         {
-
+            ManageAccount manageAccount = new ManageAccount();
+            manageAccount.ManageRole = Role.Patient;
+            manageAccount.ShowDialog();
+ 
         }
 
         private void btnViewMyInfo_Click(object sender, RoutedEventArgs e)
@@ -129,7 +130,7 @@ namespace DabClinicWPF.MainFunction
 
         private void txtBlock_WelcomeTitle_Loaded(object sender, RoutedEventArgs e)
         {
-            if(currentUser != null)
+            if (currentUser != null)
             {
                 txtBlock_WelcomeTitle.Text = $"Welcome {currentUser.Fullname}";
             }

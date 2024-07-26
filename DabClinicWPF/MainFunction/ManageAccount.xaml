@@ -8,7 +8,8 @@
         Title="ManageAccount"
         MouseDown="Window_MouseDown"
         Height="450"
-        Width="800">
+        Width="800"
+        WindowStyle="None">
     <Border CornerRadius="13">
         <Border.Background>
             <ImageBrush ImageSource="pack://siteoforigin:,,,/images/background.png" />
@@ -54,7 +55,7 @@
                         <ColumnDefinition Width="5"></ColumnDefinition>
                     </Grid.ColumnDefinitions>
 
-                    <TextBlock Text="Manage Room"
+                    <TextBlock Text="Manage Account"
                                FontSize="15"
                                Foreground="DarkSlateGray"
                                FontFamily="Montserrat"
@@ -142,7 +143,7 @@
                         <ColumnDefinition Width="250"></ColumnDefinition>
                         <ColumnDefinition></ColumnDefinition>
                     </Grid.ColumnDefinitions>
-                    <TextBlock Text="Capacity"
+                    <TextBlock Text="Name"
                                Foreground="DarkSlateGray"
                                FontSize="20"
                                FontWeight="Medium"
@@ -151,7 +152,7 @@
                                VerticalAlignment="Center"
                                Grid.Column="0" />
 
-                    <TextBox x:Name="txtCapacity"
+                    <TextBox x:Name="txt_FullName"
                              FontSize="20"
                              FontWeight="Medium"
                              FontFamily="Montserrat"
@@ -165,7 +166,7 @@
                              Grid.Column="1">
                     </TextBox>
 
-                    <TextBlock Text="Price"
+                    <TextBlock Text="Phone"
                                Foreground="DarkSlateGray"
                                FontSize="20"
                                FontWeight="Medium"
@@ -174,7 +175,7 @@
                                VerticalAlignment="Center"
                                Grid.Column="2" />
 
-                    <TextBox x:Name="txtPrice"
+                    <TextBox x:Name="txt_PhoneNumber"
                              FontSize="20"
                              FontWeight="Medium"
                              FontFamily="Montserrat"
@@ -214,10 +215,11 @@
                         <ColumnDefinition Width="130" />
                     </Grid.ColumnDefinitions>
 
-                    <DataGrid x:Name="dgv_RoomList"
+                    <DataGrid x:Name="dgv_AccountList"
                               d:ItemsSource="{d:SampleData ItemCount=20}"
-                              SelectionChanged="DataGrid_SelectionChanged"
-                              Loaded="dgv_RoomList_Loaded" />
+                              SelectionChanged="dgv_AccountList_SelectionChanged"
+                              Loaded="dgv_AccountList_Loaded"
+                              SelectionMode="Single" />
 
                     <Grid Grid.Column="1">
                         <Grid.RowDefinitions>

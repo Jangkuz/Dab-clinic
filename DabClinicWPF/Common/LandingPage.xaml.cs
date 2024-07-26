@@ -103,7 +103,7 @@ namespace Dab_clinic_WPF.Common
             dgv_DentisList.ItemsSource = null;
             dgv_DentisList.ItemsSource = dataList;
         }
-
+        
         private void SetServiceDataGrid<T>(List<T> dataList)
         {
             dgv_ServiceList.ItemsSource = null;
