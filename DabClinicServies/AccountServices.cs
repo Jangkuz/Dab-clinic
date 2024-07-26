@@ -23,6 +23,24 @@ namespace DabClinicServies
             _accountRepo = AccountRepository.GetInstance();
         }
 
+        public Account? GetAccountById(int id)
+        {
+
+            //based on condition
+            Account? result = new();
+
+            try
+            {
+                result = _accountRepo.GetAccountById(id);
+            }
+            catch (ArgumentNullException argEx)
+            {
+                ExceptionHelper.ConsoleWriteException("AccountServices_GetAccountById", argEx);
+            }
+
+            return result;
+        }
+
         public bool Login(string username, string password, out Account? loginAccount, out List<string> errors)
         {
             bool result = false;
@@ -34,6 +52,7 @@ namespace DabClinicServies
                     !password.IsNullOrEmpty())
                 {
                     loginAccount = _accountRepo.GetAccountByUsernamePassword(username, password);
+                    result = true;
                 }
                 else
                 {
@@ -95,7 +114,30 @@ namespace DabClinicServies
             return result;
         }
 
-        public bool ManageAccount(Account updateAccount, List<string> errors)
+        public List<Account> GetAccountByCondition(params Func<Account, bool>[] conditions)
+        {
+            //based on condition
+            List<Account> result = new();
+            var filterConditions = conditions.ToList();
+
+            //default condition
+            if (filterConditions.IsNullOrEmpty())
+            {
+                filterConditions.Add(account => account.Role == Role.Patient);
+            }
+            try
+            {
+                result = _accountRepo.FilterAccountBasedOnConditions(Helper.CombineFilters(filterConditions));
+            }
+            catch (ArgumentNullException argEx)
+            {
+                ExceptionHelper.ConsoleWriteException("AccountServices_GetAccountByCondition", argEx);
+            }
+
+            return result;
+        }
+
+        public bool UpdateAccount(Account updateAccount, out List<string> errors)
         {
             //update account info
             //validate, set error message, 
@@ -114,13 +156,32 @@ namespace DabClinicServies
             }
             catch (DbUpdateConcurrencyException dbuConEx)
             {
+                ExceptionHelper.ConsoleWriteException("AccountServices_UpdateAccount", dbuConEx);
+            }
+            catch (DbUpdateException dbuEx)
+            {
+                ExceptionHelper.ConsoleWriteException("AccountServices_UpdateAccount", dbuEx);
+            }
+
+            return result;
+        }
+
+        public bool DeleteAccount(Account account)
+        {
+            bool result = false;
+
+            try
+            {
+                result = _accountRepo.DeleteAccount(account);
+            }
+            catch (DbUpdateConcurrencyException dbuConEx)
+            {
                 ExceptionHelper.ConsoleWriteException("AccountServices_Signup", dbuConEx);
             }
             catch (DbUpdateException dbuEx)
             {
                 ExceptionHelper.ConsoleWriteException("AccountServices_Signup", dbuEx);
             }
-
             return result;
         }
 

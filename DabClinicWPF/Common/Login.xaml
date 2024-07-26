@@ -81,7 +81,7 @@
                     </Button>
 
                     <Button x:Name="btnClose"
-                            Style="{StaticResource DefaultButton}"
+                            Style="{StaticResource DefaultClose}"
                             Grid.Column="2"
                             Click="btnClose_Click">
                         <Button.Template>
@@ -109,13 +109,13 @@
                                FontWeight="Medium"
                                FontFamily="Montserrat"
                                HorizontalAlignment="Center" />
-                    <TextBlock Text="Email"
+                    <TextBlock Text="Username"
                                Foreground="Black"
                                FontSize="12"
                                FontWeight="Medium"
                                FontFamily="Montserrat"
                                Margin="30,35,0,0" />
-                    <TextBox x:Name="txtEmail"
+                    <TextBox x:Name="txtUsername"
                              FontSize="13"
                              FontWeight="Medium"
                              FontFamily="Montserrat"
@@ -126,7 +126,8 @@
                              Height="28"
                              VerticalContentAlignment="Center"
                              Margin="30,5,30,0"
-                             Padding="20,0,0,0">
+                             Padding="20,0,0,0"
+                             Loaded="txtEmail_Loaded">
                     </TextBox>
 
                     <TextBlock Text="Password"
@@ -147,7 +148,9 @@
                                  Height="28"
                                  VerticalContentAlignment="Center"
                                  Margin="30,5,30,0"
-                                 Padding="20,0,0,0">
+                                 Padding="20,0,0,0"
+                                 Loaded="txtPass_Loaded"
+                                 Password="">
                     </PasswordBox>
 
                     <Button x:Name="btnLogin"

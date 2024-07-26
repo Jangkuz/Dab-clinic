@@ -47,11 +47,7 @@
                 <Grid.RowDefinitions>
                     <!--0. Header-->
                     <RowDefinition Height="30"></RowDefinition>
-
-                    <!--1. Title-->
-                    <RowDefinition Height="50"></RowDefinition>
-
-                    <!--2. Blank-->
+                    <RowDefinition Height="70"></RowDefinition>
                     <RowDefinition Height="30"></RowDefinition>
 
                     <!--3. Row button for customer-->
@@ -164,13 +160,15 @@
                         <ColumnDefinition Width="150"></ColumnDefinition>
                     </Grid.ColumnDefinitions>
                     <!-- Text welcome -->
-                    <TextBlock Text="Welcome to DAB Clinic"
+                    <TextBlock x:Name="txtBlock_WelcomeTitle"
+                               Text="Welcome to DAB Clinic"
                                Foreground="DarkSlateGray"
                                FontSize="50"
                                FontWeight="Medium"
                                FontFamily="Montserrat"
                                HorizontalAlignment="Center"
-                               Grid.Column="0" />
+                               Grid.Column="0"
+                               Loaded="txtBlock_WelcomeTitle_Loaded" />
 
                     <!-- Button Logout-->
                     <Button x:Name="btnLogout"

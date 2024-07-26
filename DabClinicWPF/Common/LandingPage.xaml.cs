@@ -57,8 +57,8 @@ namespace Dab_clinic_WPF.Common
         private void btnLogin_Click(object sender, RoutedEventArgs e)
         {
             Login login = new Login();
+            login.Owner = Window.GetWindow(this);
             login.ShowDialog();
-            login.Owner = this;
         }
 
 
@@ -103,7 +103,7 @@ namespace Dab_clinic_WPF.Common
             dgv_DentisList.ItemsSource = null;
             dgv_DentisList.ItemsSource = dataList;
         }
-
+        
         private void SetServiceDataGrid<T>(List<T> dataList)
         {
             dgv_ServiceList.ItemsSource = null;
