@@ -63,28 +63,9 @@
                                Margin="10,0,0,0" />
 
                     <Button x:Name="btnMinimize"
-                            BorderThickness="0"
-                            Content="-"
-                            Foreground="White"
-                            FontSize="18"
-                            FontFamily="Montserrat"
-                            Cursor="Hand"
+                            Style="{StaticResource DefaultMinimize}"
                             Grid.Column="1"
                             Click="btnMinimize_Click">
-                        <Button.Style>
-                            <Style TargetType="Button">
-                                <Setter Property="Background"
-                                        Value="LightBlue" />
-                                <Style.Triggers>
-                                    <Trigger Property="IsMouseOver"
-                                             Value="True">
-                                        <Setter Property="Background"
-                                                Value="DarkBlue" />
-                                    </Trigger>
-                                </Style.Triggers>
-
-                            </Style>
-                        </Button.Style>
                         <Button.Template>
                             <ControlTemplate TargetType="Button">
                                 <Border Width="20"
@@ -100,28 +81,9 @@
                     </Button>
 
                     <Button x:Name="btnClose"
-                            BorderThickness="0"
-                            Content="X"
-                            Foreground="Black"
-                            FontSize="12"
-                            FontFamily="Montserrat"
-                            Cursor="Hand"
+                            Style="{StaticResource DefaultClose}"
                             Grid.Column="2"
                             Click="btnClose_Click">
-                        <Button.Style>
-                            <Style TargetType="Button">
-                                <Setter Property="Background"
-                                        Value="IndianRed" />
-                                <Style.Triggers>
-                                    <Trigger Property="IsMouseOver"
-                                             Value="True">
-                                        <Setter Property="Background"
-                                                Value="DarkRed" />
-                                    </Trigger>
-                                </Style.Triggers>
-
-                            </Style>
-                        </Button.Style>
                         <Button.Template>
                             <ControlTemplate TargetType="Button">
                                 <Border Width="20"
@@ -147,13 +109,13 @@
                                FontWeight="Medium"
                                FontFamily="Montserrat"
                                HorizontalAlignment="Center" />
-                    <TextBlock Text="Email"
+                    <TextBlock Text="Username"
                                Foreground="Black"
                                FontSize="12"
                                FontWeight="Medium"
                                FontFamily="Montserrat"
                                Margin="30,35,0,0" />
-                    <TextBox x:Name="txtEmail"
+                    <TextBox x:Name="txtUsername"
                              FontSize="13"
                              FontWeight="Medium"
                              FontFamily="Montserrat"
@@ -164,7 +126,8 @@
                              Height="28"
                              VerticalContentAlignment="Center"
                              Margin="30,5,30,0"
-                             Padding="20,0,0,0">
+                             Padding="20,0,0,0"
+                             Loaded="txtEmail_Loaded">
                     </TextBox>
 
                     <TextBlock Text="Password"
@@ -185,32 +148,17 @@
                                  Height="28"
                                  VerticalContentAlignment="Center"
                                  Margin="30,5,30,0"
-                                 Padding="20,0,0,0">
+                                 Padding="20,0,0,0"
+                                 Loaded="txtPass_Loaded"
+                                 Password="">
                     </PasswordBox>
 
                     <Button x:Name="btnLogin"
-                            BorderThickness="0"
-                            Content="LOG IN"
-                            Foreground="Black"
-                            FontSize="12"
+                            Style="{StaticResource DefaultButton}"
                             FontWeight="Bold"
-                            FontFamily="Montserrat"
-                            Cursor="Hand"
                             Margin="0,30,0,0"
+                            FontSize="12"
                             Click="btnLogin_Click">
-                        <Button.Style>
-                            <Style TargetType="Button">
-                                <Setter Property="Background"
-                                        Value="CadetBlue" />
-                                <Style.Triggers>
-                                    <Trigger Property="IsMouseOver"
-                                             Value="True">
-                                        <Setter Property="Background"
-                                                Value="#28AEED" />
-                                    </Trigger>
-                                </Style.Triggers>
-                            </Style>
-                        </Button.Style>
                         <Button.Template>
                             <ControlTemplate TargetType="Button">
                                 <Border Width="150"
@@ -218,7 +166,8 @@
                                         CornerRadius="20"
                                         Background="{TemplateBinding Background}">
                                     <ContentPresenter VerticalAlignment="Center"
-                                                      HorizontalAlignment="Center" />
+                                                      HorizontalAlignment="Center"
+                                                      Content="LOG IN" />
                                 </Border>
                             </ControlTemplate>
                         </Button.Template>

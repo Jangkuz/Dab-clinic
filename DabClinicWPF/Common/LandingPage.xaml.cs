@@ -57,8 +57,8 @@ namespace Dab_clinic_WPF.Common
         private void btnLogin_Click(object sender, RoutedEventArgs e)
         {
             Login login = new Login();
+            login.Owner = Window.GetWindow(this);
             login.ShowDialog();
-            login.Owner = this;
         }
 
 

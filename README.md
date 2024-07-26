@@ -4,6 +4,7 @@ PRN212 assignment project.
 General rule:
 1. Repo log then throw exception
 2. Services process exception/send user messages
+3. update account => re pass account to window
 
 Bussiness rule
 0. All user infos must be completely filled when registering an account.
