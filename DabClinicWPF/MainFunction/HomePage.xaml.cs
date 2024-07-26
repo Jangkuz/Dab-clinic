@@ -27,6 +27,8 @@ namespace DabClinicWPF.MainFunction
         public HomePage()
         {
             InitializeComponent();
+            _accService = new AccountServices();
+            _clinicTreatmentService = new ClinicTreatmentServices();
         }
         private void Window_MouseDown(object sender, MouseEventArgs e)
         {
