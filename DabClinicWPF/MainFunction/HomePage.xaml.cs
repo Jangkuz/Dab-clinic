@@ -29,13 +29,8 @@ namespace DabClinicWPF.MainFunction
         public HomePage()
         {
             InitializeComponent();
-<<<<<<< HEAD
-            _accService = new AccountServices();
-            _clinicTreatmentService = new ClinicTreatmentServices();
-=======
             _accService = new();
             _clinicTreatmentService = new();
->>>>>>> 9b4cdff72f30200d47d46a38323e0f7844e38a22
         }
         private void Window_MouseDown(object sender, MouseEventArgs e)
         {
@@ -90,7 +85,10 @@ namespace DabClinicWPF.MainFunction
 
         private void btnBookAppointment_Click(object sender, RoutedEventArgs e)
         {
-
+            Schedule schedule = new Schedule();
+            schedule.Owner = this;
+            schedule.Show();
+            this.Hide();
         }
 
         private void btnViewResult_Click(object sender, RoutedEventArgs e)
@@ -125,7 +123,7 @@ namespace DabClinicWPF.MainFunction
             ManageAccount manageAccount = new ManageAccount();
             manageAccount.ManageRole = Role.Patient;
             manageAccount.ShowDialog();
- 
+
         }
 
         private void btnViewMyInfo_Click(object sender, RoutedEventArgs e)
@@ -140,69 +138,69 @@ namespace DabClinicWPF.MainFunction
                 txtBlock_WelcomeTitle.Text = $"Welcome {currentUser.Fullname}";
             }
         }
-        private void Window_MouseDown(object sender, MouseEventArgs e)
-        {
-            if (e.LeftButton == MouseButtonState.Pressed)
-            {
-                DragMove();
-            }
-        }
+        //private void Window_MouseDown(object sender, MouseEventArgs e)
+        //{
+        //    if (e.LeftButton == MouseButtonState.Pressed)
+        //    {
+        //        DragMove();
+        //    }
+        //}
 
-        //Thu nho cua so 
-        private void btnMinimize_Click(object sender, RoutedEventArgs e)
-        {
-            WindowState = WindowState.Minimized;
-        }
+        ////Thu nho cua so 
+        //private void btnMinimize_Click(object sender, RoutedEventArgs e)
+        //{
+        //    WindowState = WindowState.Minimized;
+        //}
 
-        //Dong app
-        private void btnClose_Click(object sender, RoutedEventArgs e)
-        {
-            Application.Current.Shutdown();
-        }
+        ////Dong app
+        //private void btnClose_Click(object sender, RoutedEventArgs e)
+        //{
+        //    Application.Current.Shutdown();
+        //}
 
-        private void btnSearch_Click(object sender, RoutedEventArgs e)
-        {
+        //private void btnSearch_Click(object sender, RoutedEventArgs e)
+        //{
 
-        }
+        //}
 
-        private void btnLogin_Click(object sender, RoutedEventArgs e)
-        {
-            Login login = new Login();
-            login.ShowDialog();
-            login.Owner = this;
-        }
+        //private void btnLogin_Click(object sender, RoutedEventArgs e)
+        //{
+        //    Login login = new Login();
+        //    login.ShowDialog();
+        //    login.Owner = this;
+        //}
 
 
-        private void DataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
+        //private void DataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        //{
 
-        }
+        //}
 
-        private void btnSignup_Click(object sender, RoutedEventArgs e)
-        {
+        //private void btnSignup_Click(object sender, RoutedEventArgs e)
+        //{
 
-        }
+        //}
 
         private void btn_SearchService_Click(object sender, RoutedEventArgs e)
         {
-            
+
         }
 
 
         private void btn_SearchDentist_Click(object sender, RoutedEventArgs e)
         {
-            
+
         }
 
         private void dgv_DentisList_Loaded(object sender, RoutedEventArgs e)
         {
-            
-        }
-
-        private void btnLogout_Click(object sender, RoutedEventArgs e)
-        {
 
         }
+
+        //private void btnLogout_Click(object sender, RoutedEventArgs e)
+        //{
+
+        //}
     }
 }
 

@@ -32,11 +32,11 @@ namespace Dab_clinic_WPF.Common
         // ================ For debugging puposses!! ================ 
         private void txtEmail_Loaded(object sender, RoutedEventArgs e)
         {
-            txtUsername.Text = "abc1";
+            //txtUsername.Text = "abc1";
         }
         private void txtPass_Loaded(object sender, RoutedEventArgs e)
         {
-            txtPass.Password = "12345";
+            //txtPass.Password = "12345";
         }
         // ================ For debugging puposses!! ================ 
         private void Window_MouseDown(object sender, MouseEventArgs e)

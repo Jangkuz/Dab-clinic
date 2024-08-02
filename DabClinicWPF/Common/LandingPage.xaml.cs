@@ -74,7 +74,7 @@ namespace Dab_clinic_WPF.Common
 
         private void btn_SearchService_Click(object sender, RoutedEventArgs e)
         {
-            Func<ClinicService, bool> filterByName = cliService => cliService.ServiceName!.ToLower().Equals(txt_ServiceName.Text.ToLower());
+            Func<ClinicService, bool> filterByName = cliService => cliService.ServiceName!.ToLower().Contains(txt_ServiceName.Text.ToLower());
             var serviceList = _clinicTreatmentService.GetClinicServices(filterByName);
             SetServiceDataGrid(dataList: serviceList);
         }
@@ -82,7 +82,7 @@ namespace Dab_clinic_WPF.Common
 
         private void btn_SearchDentist_Click(object sender, RoutedEventArgs e)
         {
-            Func<Account, bool> filterByName = account => account.Fullname!.ToLower().Equals(txt_DetistName.Text.ToLower());
+            Func<Account, bool> filterByName = account => account.Fullname!.ToLower().Contains(txt_DetistName.Text.ToLower());
             var denstistList = _accService.GetDentisList(filterByName);
             SetDentistDataGrid(dataList: denstistList);
         }

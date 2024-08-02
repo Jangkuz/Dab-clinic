@@ -48,9 +48,10 @@ namespace DabClinicWPF.MainFunction
         {
 
         }
-        private void btnLogout_Click(object sender, RoutedEventArgs e)
+        private void btnBack_Click(object sender, RoutedEventArgs e)
         {
-
+            this.Owner.Show();
+            this.Close();
         }
 
         private void dgv_AppointmentList_Loaded(object sender, RoutedEventArgs e)

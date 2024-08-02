@@ -126,7 +126,7 @@
                         </Button.Template>
                     </Button>
 
-                    <TextBlock Text="Manage Room Information"
+                    <TextBlock Text="Manage Account Information"
                                Foreground="DarkSlateGray"
                                FontSize="44"
                                FontWeight="Medium"

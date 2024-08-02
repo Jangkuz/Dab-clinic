@@ -1,7 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using DabClinicRepo.Enums;
-using DabClinicRepo.Models;
+﻿using DabClinic.Domain.Enums;
+using DabClinic.Domain.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 
@@ -9,15 +7,6 @@ namespace DabClinicRepo.Context;
 
 public partial class DabClinicContext : DbContext
 {
-    public DabClinicContext()
-    {
-    }
-
-    public DabClinicContext(DbContextOptions<DabClinicContext> options)
-        : base(options)
-    {
-    }
-
     public virtual DbSet<Account> Accounts { get; set; }
 
     public virtual DbSet<Appointment> Appointments { get; set; }
@@ -32,28 +21,26 @@ public partial class DabClinicContext : DbContext
 
     public virtual DbSet<ServiceCategory> ServiceCategories { get; set; }
 
-    protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        //#warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see https://go.microsoft.com/fwlink/?LinkId=723263.
-        //=> optionsBuilder.UseSqlServer("server =(local); database=Dab_clinic; uid=sa; pwd=12345; TrustServerCertificate=True");
-        => optionsBuilder.UseSqlServer(GetConnectionString());
-
-    private string GetConnectionString()
+    public DabClinicContext()
     {
-        IConfiguration config = new ConfigurationBuilder()
-             .SetBasePath(Directory.GetCurrentDirectory())
-                    .AddJsonFile("appsettings.json", true, true)
-                    .Build();
-        var strConn = config["ConnectionStrings:DefaultConnectionStringDB"];
-
-        return strConn;
     }
+
+    public DabClinicContext(DbContextOptions<DabClinicContext> options)
+        : base(options)
+    {
+    }
+
+    //protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+    //    //#warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see https://go.microsoft.com/fwlink/?LinkId=723263.
+    //    => optionsBuilder.UseSqlServer("server =(local); database=Dab_clinic; uid=sa; pwd=12345; TrustServerCertificate=True");
+    ////=> optionsBuilder.UseSqlServer(GetConnectionString());
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         modelBuilder.Entity<Account>(entity =>
         {
             entity.HasKey(e => e.Id).HasName("PK__Account__3213E83FCE57C7FE");
-
+            //entity.Property(e => e.Username).
             entity.Property(e => e.Active).HasDefaultValue(true);
             entity.Property(e => e.Removed).HasDefaultValue(false);
             entity.Property(e => e.Role).HasDefaultValue(Role.Patient);

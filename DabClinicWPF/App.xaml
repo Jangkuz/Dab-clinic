@@ -2,17 +2,14 @@
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:local="clr-namespace:Dab_clinic_WPF"
-<<<<<<< HEAD
-             StartupUri="MainFunction/Schedule.xaml">
-=======
-             StartupUri="Common/Register.xaml">
->>>>>>> 9b4cdff72f30200d47d46a38323e0f7844e38a22
+             StartupUri="Common/LandingPage.xaml">
+             <!--StartupUri="MainFunction/Schedule.xaml">-->
     <Application.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
-                <ResourceDictionary Source="CSS/DefaultButton.xaml" />
-                <ResourceDictionary Source="CSS/DefaultTextBlock.xaml" />
-                <ResourceDictionary Source="CSS/DefaultTextBox.xaml" />
+                <ResourceDictionary Source="CSS/DefaultButton.xaml"/>
+                <ResourceDictionary Source="CSS/DefaultTextBlock.xaml"/>
+                <ResourceDictionary Source="CSS/DefaultTextBox.xaml"/>
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
 
